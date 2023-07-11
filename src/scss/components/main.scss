@@ -1,0 +1,146 @@
+.main {
+  position: relative;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  overflow: hidden;
+
+  background: $gradient-bg;
+
+  @include mobile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -100px;
+    margin-left: auto;
+    max-width: 394px;
+
+    @include tablet {
+      flex-direction: row;
+      margin-bottom: 0;
+      max-width: inherit;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    @include mobile {
+      margin-bottom: 30px;
+      display: flex;
+      gap: 5px;
+      max-width: 266px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__title {
+    position: relative;
+    font-size: 5rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+
+    @include tablet {
+      font-size: 3.7rem;
+    }
+
+    @include mobile {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__text {
+    color: $white;
+
+    @include desktop-1024 {
+    }
+
+    @include tablet {
+    }
+
+    @include mobile {
+      font-size: 1.6rem;
+    }
+
+    &--mr {
+      margin-left: 66px;
+      @include desktop-1024 {
+      }
+
+      @include tablet {
+        margin-left: 0;
+      }
+      @include mobile {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__btn {
+    padding: 22px 90px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    transition: 250ms linear;
+
+    @include mobile {
+      padding: 19px 103px;
+      font-size: 1.5rem;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0px 10px 20px rgb(0 0 0 / 12%), 0px 2px 6px rgb(0 0 0 / 12%),
+        0px 0px 1px rgb(0 0 0 / 12%);
+      background-color: rgba(1, 164, 164, 0.8588235294);
+    }
+  }
+
+  &__img {
+    @include mobile {
+      display: none;
+    }
+  }
+}
+
+.main-content {
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+
+    @include mobile {
+      display: none;
+    }
+  }
+}
+
+.main-mobile-box {
+  display: none;
+
+  @include mobile {
+    &--hidden {
+      display: block;
+      margin-top: 50px;
+    }
+  }
+
+  &__img {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -60px;
+    z-index: -1;
+
+    &--width {
+      width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

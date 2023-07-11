@@ -1,0 +1,99 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  font-size: 1rem;
+
+  color: $gray-dark;
+  background-color: $white;
+
+  &.body-header-mobile-menu__visible {
+    overflow: hidden;
+  }
+}
+
+.container {
+  max-width: 1250px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0 auto;
+}
+
+.primary-btn {
+  font-family: $font-babes;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+
+  color: $white;
+  background-color: $blue;
+}
+
+.primary-title {
+  font-family: $font-babes;
+  font-weight: 700;
+  font-size: 6rem;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+
+  color: $black-light;
+}
+
+.secondary-title {
+  font-family: $font-babes;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1;
+  text-transform: uppercase;
+
+  color: $black-dark;
+
+  @include mobile {
+    font-family: $font-advent;
+    font-size: 1.5rem;
+    line-height: 1.21;
+    text-align: center;
+    text-transform: lowercase;
+  }
+}
+
+.before-title {
+  font-weight: 700;
+  font-size: 0.87rem;
+  line-height: 1.14;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color: $blue;
+
+  @include mobile {
+    font-size: 0.75rem;
+    line-height: 1.16;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+}
+
+.after-title {
+  font-family: $font-galada;
+  font-weight: 400;
+  font-size: 4.5rem;
+  line-height: 1.62;
+  text-align: center;
+
+  @include desktop-1024 {
+    font-size: 4rem;
+  }
+
+  @include tablet-768 {
+    font-size: 3.5rem;
+  }
+}

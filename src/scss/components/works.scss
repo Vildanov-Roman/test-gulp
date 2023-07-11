@@ -1,0 +1,132 @@
+.works {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @include mobile {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include mobile {
+      margin-bottom: 29px;
+    }
+  }
+
+  &__btn {
+    padding: 22px 84px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 250ms linear;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0px 10px 20px rgb(0 0 0 / 12%), 0px 2px 6px rgb(0 0 0 / 12%),
+        0px 0px 1px rgb(0 0 0 / 12%);
+      background-color: #01a4a4db;
+    }
+
+    @include mobile {
+      padding: 19px 98px;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.works-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 178px;
+  margin-bottom: 50px;
+
+  @include desktop-1024 {
+    gap: 60px;
+  }
+
+  @include mobile {
+    margin-bottom: 30px;
+    gap: 65px;
+  }
+
+  &__img-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__item {
+    position: relative;
+    max-width: 282px;
+
+    &:not(:last-child) {
+      &::after {
+        @include mobile {
+          content: "";
+          position: absolute;
+          bottom: -45px;
+          left: 0;
+          width: 288px;
+          height: 15px;
+
+          background-image: url(../../img/works-mobile-decor.png);
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-family: $font-babes;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1;
+    text-align: center;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+
+    color: $black-dark;
+
+    @include mobile {
+      font-family: $font-advent;
+      font-size: 1.12rem;
+      line-height: 1.22;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+
+    @include mobile {
+      font-size: 0.87rem;
+    }
+  }
+
+  &__img {
+    width: 200px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include mobile {
+      width: 211px;
+      margin-bottom: 30px;
+    }
+  }
+}

@@ -1,0 +1,220 @@
+.blog {
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @include mobile {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+    text-align: center;
+
+    @include mobile {
+      text-transform: none;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__decor {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__btns {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 66px;
+    height: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: $gradient;
+
+    &--hidden {
+      display: none;
+
+      @include mobile {
+        display: block;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 66px;
+      height: 2px;
+      border-radius: 10px;
+      margin-left: 80px;
+      cursor: pointer;
+
+      background-color: $nav-menu-bg;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 66px;
+      height: 2px;
+      border-radius: 10px;
+      margin-left: -80px;
+      cursor: pointer;
+
+      background-color: $nav-menu-bg;
+    }
+  }
+}
+
+.blog-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 29px;
+
+  &__item {
+    max-width: 387px;
+    border: 1px solid #f0f8f6;
+    margin-right: 30px;
+
+    background-color: $white;
+
+    @include desktop-1024 {
+      max-width: 300px;
+    }
+
+    @include mobile {
+      max-width: 288px;
+      margin-right: 10px;
+
+      &--hidden {
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    width: 387px;
+
+    @include desktop-1024 {
+      width: 300px;
+    }
+
+    @include mobile {
+      width: 287px;
+    }
+  }
+  &__content {
+    padding: 40px;
+
+    @include mobile {
+      padding: 25px;
+    }
+  }
+
+  &__title {
+    font-family: $font-babes;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    margin-bottom: 77px;
+    min-height: 50px;
+
+    color: $black-dark;
+
+    @include mobile {
+      font-family: $font-advent;
+      font-size: 1.12rem;
+      line-height: 1.22;
+      margin-bottom: 23px;
+
+      &--mt {
+        margin-bottom: 43px;
+      }
+    }
+  }
+
+  &__text {
+    position: relative;
+    font-weight: 400;
+    font-size: 0.87rem;
+    line-height: 1.5;
+    margin-bottom: 37px;
+
+    @include mobile {
+      font-size: 0.75rem;
+      margin-bottom: 20px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      background-image: url(../../img/gradient-line.svg);
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__btn {
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.16;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    display: block;
+    margin-left: auto;
+    transition: 250ms linear;
+
+    & > img {
+      display: none;
+    }
+
+    @include mobile {
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: $blue;
+      background-color: $nav-menu-bg;
+
+      & > img {
+        width: 22px;
+        display: block;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0px 10px 20px rgb(0 0 0 / 12%), 0px 2px 6px rgb(0 0 0 / 12%),
+        0px 0px 1px rgb(0 0 0 / 12%);
+      background-color: rgba(1, 164, 164, 0.8588235294);
+
+      @include mobile {
+        color: $nav-menu-bg;
+      }
+    }
+  }
+}
+
+.blog .slick-arrow {
+  border: none;
+  font-size: 0;
+
+  background-color: transparent;
+}

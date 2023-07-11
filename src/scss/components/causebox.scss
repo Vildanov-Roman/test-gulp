@@ -1,0 +1,203 @@
+.causebox {
+  padding-top: 100px;
+  padding-bottom: 247px;
+  overflow: hidden;
+  z-index: 1;
+
+  background-color: $nav-menu-bg;
+
+  @include mobile {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+}
+
+.causebox-top {
+  position: relative;
+  margin-bottom: 40px;
+  @include mobile {
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    @include desktop-1024 {
+      position: relative;
+      z-index: 1;
+    }
+
+    @include mobile {
+      font-size: 1.7rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0;
+      max-width: 288px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__decor {
+    position: absolute;
+    &--right {
+      bottom: -420px;
+      right: -380px;
+      width: 990px;
+      z-index: 1;
+
+      @include mobile {
+        width: 320px;
+        bottom: 60px;
+        right: 0;
+      }
+    }
+
+    &--left {
+      width: 229px;
+      bottom: -190px;
+      left: -125px;
+      z-index: 1;
+    }
+  }
+
+  &__text {
+    margin-left: 70px;
+    margin-bottom: 20px;
+
+    @include mobile {
+      max-width: 127px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__title-secondary {
+    position: relative;
+    margin-left: 70px;
+    margin-bottom: 30px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -70px;
+      top: 15px;
+      width: 100%;
+      height: 100%;
+
+      background-image: url(../../img/gradient-line.svg);
+      background-repeat: no-repeat;
+      background-size: 50px;
+
+      @include mobile {
+        left: 40%;
+        top: -50px;
+      }
+    }
+
+    @include mobile {
+      max-width: 288px;
+      margin-bottom: 210px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    &--color {
+      color: $blue;
+    }
+  }
+}
+
+.causebox-bottom {
+  &__form {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    max-width: 595px;
+    border-radius: 0px 50px 50px 0px;
+    padding: 0 15px 0 0;
+
+    background-color: $white;
+
+    @include mobile {
+      display: flow-root;
+      background-color: transparent;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      padding: 0;
+    }
+  }
+
+  &__input {
+    font-weight: 400;
+    font-size: 0.87rem;
+    line-height: 1.5;
+    border: none;
+    padding: 40px 120px 40px 30px;
+
+    & + .error {
+      position: absolute;
+      left: 0;
+      top: -20px;
+
+      @include mobile {
+        top: -20px;
+        left: 50%;
+        transform: translate(-50%);
+        width: 250px;
+      }
+    }
+
+    @include mobile {
+      max-width: 288px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(192, 229, 148, 1);
+      padding: 20px 160px 20px 16px;
+    }
+  }
+
+  &__btn {
+    padding: 22px 105px;
+    transition: 250ms linear;
+    margin-left: auto;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0px 10px 20px rgb(0 0 0 / 12%), 0px 2px 6px rgb(0 0 0 / 12%),
+        0px 0px 1px rgb(0 0 0 / 12%);
+      background-color: rgba(1, 164, 164, 0.8588235294);
+    }
+
+    @include mobile {
+      margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.5rem;
+      padding: 19px 116px;
+    }
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    max-width: 595px;
+
+    color: $gray-light;
+
+    @include mobile {
+      text-align: center;
+      max-width: 288px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.carousel__button {
+  display: none;
+}

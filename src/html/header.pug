@@ -1,0 +1,33 @@
+header.header
+  .container
+    ul.header-list
+      li.header-list__item.header-list__item--hidden
+        a.header-list__link(href="#") <span>Home</span>
+      .header-list__item.header-list__item--trigger.header-list__item--hidden
+        a.header-list__link(href="#") <span>Boxes</span>
+        ul.header-list-menu
+          .header-list-menu__item.header-list__item--hidden
+            a.header-list-menu__link(href="#") <span>What's inside</span>
+          .header-list-menu__item.header-list__item--hidden
+            a.header-list-menu__link(href="#") <span>Kiwi Eco Box</span>
+      li.header-list__item
+        a.header-list__logo(href="#")
+          img(src="img/logo.svg", alt="KIWI eco box")
+      .header-list__item.header-list__item--hidden-burger
+        button.header-list__burger(type="button" )
+          span
+      .header-list__item.header-list__item--hidden
+        a.header-list__link(href="#") <span>About</span>
+      .header-list__item.header-list__item--hidden
+        a.header-list__link(href="#") <span>Account</span>
+    ul.header-mobile-menu
+      li.header-mobile-menu__item
+        a.header-mobile-menu__link(href="") <span>Home</span>
+      li.header-mobile-menu__item
+        a.header-mobile-menu__link(href="") <span>What's inside</span>
+      li.header-mobile-menu__item
+        a.header-mobile-menu__link(href="") <span>Kiwi Eco Box</span>
+      li.header-mobile-menu__item
+        a.header-mobile-menu__link(href="") <span>About</span>
+      li.header-mobile-menu__item
+        a.header-mobile-menu__link(href="") <span>Account</span>
