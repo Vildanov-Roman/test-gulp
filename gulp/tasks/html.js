@@ -1,6 +1,6 @@
 import fileInclude from "gulp-file-include";
 import webpHtmlNosvg from "gulp-webp-html-nosvg";
-import versionNumber from "gulp-version-number"; //кожного разу добавляє  ключ який не кишує
+import versionNumber from "gulp-version-number";
 import pug from "gulp-pug";
 
 export const html = () => {
@@ -21,9 +21,7 @@ export const html = () => {
     )
     .pipe(
       pug({
-        //Стискання HTML файла
         pretty: true,
-        //Показує в терміналі який файл оброблений
         verbose: true,
       })
     )

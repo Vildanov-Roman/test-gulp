@@ -3,7 +3,6 @@ import fonter from "gulp-fonter";
 import ttf2woff2 from "gulp-ttf2woff2";
 
 export const otfToTtf = () => {
-  //Шукаємо файли шрифтів .otf
   return (
     app.gulp
       .src(`${app.path.srcFolder}/fonts/*.otf`, {})
@@ -16,20 +15,17 @@ export const otfToTtf = () => {
         )
       )
 
-      //Конвертуємо в .ttf
       .pipe(
         fonter({
           formats: ["ttf"],
         })
       )
 
-      //Вигружаємо в ісходну папку
       .pipe(app.gulp.dest(`${app.path.srcFolder}/fonts/`))
   );
 };
 
 export const ttfToWoff = () => {
-  //Шукаємо файли шрифтів .ttf
   return (
     app.gulp
       .src(`${app.path.srcFolder}/fonts/*.ttf`, {})
@@ -41,37 +37,27 @@ export const ttfToWoff = () => {
           })
         )
       )
-      //Конвертуємо в .ttf
       .pipe(
         fonter({
           formats: ["woff"],
         })
       )
 
-      //Вигружаємо в папку з результатом
       .pipe(app.gulp.dest(`${app.path.build.fonts}`))
-      //шукаємо файли шрифтів .ttf
       .pipe(app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`))
-      //Конвертуємо в .woff2
       .pipe(ttf2woff2())
-      //Вигружаємо в папку з результатом
       .pipe(app.gulp.dest(`${app.path.build.fonts}`))
   );
 };
 
 export const fontsStyle = () => {
-  //файл стилів підключення шрифтів
   let fontsFile = `${app.path.srcFolder}/scss/fonts.scss`;
-  //Провіряємо файли шрифтів на існування
   fs.readdir(app.path.build.fonts, function (err, fontsFiles) {
     if (fontsFiles) {
-      //Провіряємо чи існують файл стилів для підключення шрифтів
       if (!fs.existsSync(fontsFile)) {
-        //Якщо файла немає, створюємо новий
         fs.writeFile(fontsFile, "", cb);
         let newFileOnly;
         for (var i = 0; i < fontsFiles.length; i++) {
-          //Записуємо підключення шрифтів в файл стилів
           let fontFileName = fontsFiles[i].split(".")[0];
           if (newFileOnly !== fontFileName) {
             let fontName = fontFileName.split("-")[0]
@@ -112,7 +98,6 @@ export const fontsStyle = () => {
           }
         }
       } else {
-        //Якщо файл є , вводимо смс
         console.log(
           "Файл scss/fonts.scss вже існує, для оновлення файла його потрібно удалити."
         );

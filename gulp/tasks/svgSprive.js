@@ -17,7 +17,6 @@ export const svgSprive = () => {
         mode: {
           stack: {
             sprite: `../icons/icons.svg`,
-            //Створювати сторінку з списком іконок
             example: true,
           },
         },

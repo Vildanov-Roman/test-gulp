@@ -1,15 +1,6 @@
-//Основний модуль
 import gulp from "gulp";
-
-//Імпорт шляхів
-
 import { path } from "./gulp/config/path.js";
-
-//Імпорт загальних плагінів
-
 import { plugins } from "./gulp/config/plugins.js";
-
-//Передаєм значення в глобальну змінну
 
 global.app = {
   isBuild: process.argv.includes("--build"), //режим продакшена
@@ -18,8 +9,6 @@ global.app = {
   gulp: gulp,
   plugins: plugins,
 };
-
-//Імпорт задач
 
 import { copy } from "./gulp/tasks/copy.js";
 import { reset } from "./gulp/tasks/reset.js";
@@ -32,8 +21,6 @@ import { otfToTtf, ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
 import { svgSprive } from "./gulp/tasks/svgSprive.js";
 import { zip } from "./gulp/tasks/zip.js";
 import { ftp } from "./gulp/tasks/ftp.js";
-
-//Наглядач за змінами в файлах
 
 function watcher() {
   gulp.watch(path.watch.files, copy);
@@ -48,31 +35,21 @@ function watcher() {
 
 export { svgSprive };
 
-//Послідовна обробка шрифтів
-
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
-
-//Основні задачі
 
 const mainTasks = gulp.series(
   fonts,
   gulp.parallel(copy, html, scss, js, images, svgSprive)
 );
 
-//Побудова сценаріїв виконання задач
-
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 const build = gulp.series(reset, mainTasks); // в режимі продакшена
 const deployZIP = gulp.series(reset, mainTasks, zip);
 const deployFTP = gulp.series(reset, mainTasks, ftp);
 
-//експорт сценаріїв
-
 export { dev };
 export { build };
 export { deployZIP };
 export { deployFTP };
-
-//Виконання сценарію по замовчуванні
 
 gulp.task("default", dev);

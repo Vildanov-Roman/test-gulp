@@ -1,9 +1,9 @@
-import replace from "gulp-replace"; // Пошук і заміна
-import plumber from "gulp-plumber"; // Обробка помилок
-import notify from "gulp-notify"; // смс підказки
-import browsersync from "browser-sync"; //локальний сервер
-import newer from "gulp-newer"; // Перевірка оновлення
-import ifPlugin from "gulp-if"; //Умовне розгалуження
+import replace from "gulp-replace";
+import plumber from "gulp-plumber";
+import notify from "gulp-notify";
+import browsersync from "browser-sync";
+import newer from "gulp-newer";
+import ifPlugin from "gulp-if";
 
 // Експортуєм обєкт
 
