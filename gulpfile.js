@@ -3,8 +3,8 @@ import { path } from "./gulp/config/path.js";
 import { plugins } from "./gulp/config/plugins.js";
 
 global.app = {
-  isBuild: process.argv.includes("--build"), //режим продакшена
-  isDev: !process.argv.includes("--build"), //режим розробника
+  isBuild: process.argv.includes("--build"),
+  isDev: !process.argv.includes("--build"),
   path: path,
   gulp: gulp,
   plugins: plugins,
@@ -22,6 +22,16 @@ import { svgSprive } from "./gulp/tasks/svgSprive.js";
 import { zip } from "./gulp/tasks/zip.js";
 import { ftp } from "./gulp/tasks/ftp.js";
 
+const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
+const build = gulp.series(reset, mainTasks);
+const deployZIP = gulp.series(reset, mainTasks, zip);
+const deployFTP = gulp.series(reset, mainTasks, ftp);
+const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
+const mainTasks = gulp.series(
+    fonts,
+    gulp.parallel(copy, html, scss, js, images, svgSprive)
+);
+
 function watcher() {
   gulp.watch(path.watch.files, copy);
   gulp.watch(path.watch.html, html);
@@ -29,25 +39,12 @@ function watcher() {
   gulp.watch(path.watch.js, js);
   gulp.watch(path.watch.images, images);
   gulp.watch(path.watch.svgicons, svgSprive);
-}
-
-export { svgSprive };
-
-const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
-
-const mainTasks = gulp.series(
-  fonts,
-  gulp.parallel(copy, html, scss, js, images, svgSprive)
-);
-
-const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
-const build = gulp.series(reset, mainTasks); // в режимі продакшена
-const deployZIP = gulp.series(reset, mainTasks, zip);
-const deployFTP = gulp.series(reset, mainTasks, ftp);
+};
 
 export { dev };
 export { build };
 export { deployZIP };
 export { deployFTP };
+export { svgSprive };
 
 gulp.task("default", dev);
