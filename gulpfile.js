@@ -24,9 +24,7 @@ import { ftp } from "./gulp/tasks/ftp.js";
 
 function watcher() {
   gulp.watch(path.watch.files, copy);
-  gulp.watch(path.watch.html, html); //якщо потрібно любій зміні файла вони мають одразу попадати на сервер
-  //тоді потрібно для кожної задачі добавити   gulp.watch(path.watch.html, gulp.series(html,  ftp));
-
+  gulp.watch(path.watch.html, html);
   gulp.watch(path.watch.scss, scss);
   gulp.watch(path.watch.js, js);
   gulp.watch(path.watch.images, images);
